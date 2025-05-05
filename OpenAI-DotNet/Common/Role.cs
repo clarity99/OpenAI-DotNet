@@ -9,8 +9,6 @@ namespace OpenAI
     {
         [EnumMember(Value = "system")]
         System = 1,
-        [EnumMember(Value = "developer")]
-        Developer,
         [EnumMember(Value = "assistant")]
         Assistant,
         [EnumMember(Value = "user")]
@@ -19,6 +17,8 @@ namespace OpenAI
         [EnumMember(Value = "function")]
         Function,
         [EnumMember(Value = "tool")]
-        Tool
+        Tool,
+        [EnumMember(Value = "developer")]
+        Developer
     }
 }
