@@ -78,6 +78,12 @@ namespace OpenAI
         public object Text { get; private set; }
 
         [JsonInclude]
+        [JsonPropertyName("cache_control")]
+        //[JsonConverter(typeof(StringOrObjectConverter<CacheControlType>))]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+        public CacheControlType CacheControl { get; set; }
+
+        [JsonInclude]
         [JsonPropertyName("image_url")]
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public ImageUrl ImageUrl { get; private set; }
@@ -178,5 +184,14 @@ namespace OpenAI
                 }
             }
         }
+    }
+
+    public class CacheControlType
+    {
+        [JsonInclude]
+        [JsonPropertyName("type")]
+        //[JsonConverter(typeof(StringOrObjectConverter<CacheControlType>))]
+        [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
+       public string Type { get; set; }
     }
 }
